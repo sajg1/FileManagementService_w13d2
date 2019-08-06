@@ -1,6 +1,7 @@
 package com.codeclan.example.filemanagementservice.models;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import org.springframework.data.util.Lazy;
 
 import javax.persistence.*;
@@ -23,9 +24,16 @@ public class Folder {
     @OneToMany(mappedBy= "folder", fetch = FetchType.LAZY)
     private List<File> files;
 
-    public Folder(String title) {
+    @JsonIgnoreProperties("folders")
+    @ManyToOne
+    @JoinColumn(name = "user_id", nullable = false)
+    private User user;
+
+    public Folder(String title, User user) {
         this.title = title;
+        this.user = user;
         this.files = new ArrayList<>();
+
     }
 
     public String getTitle() {
