@@ -14,7 +14,7 @@ public class FolderTest {
 
     @Before
     public void before() {
-        file = new File("cv", "doc", 10);
+        file = new File("cv", "doc", 10, folder);
         folder = new Folder("Careers");
     }
 

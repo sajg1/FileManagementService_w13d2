@@ -16,7 +16,7 @@ public class UserTest {
 
     @Before
     public void before() {
-        file = new File("cv", "doc", 10);
+        file = new File("cv", "doc", 10, folder);
         folder = new Folder("Careers");
         user = new User("Steve");
     }
