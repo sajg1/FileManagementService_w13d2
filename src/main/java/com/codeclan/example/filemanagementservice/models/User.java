@@ -27,6 +27,10 @@ public class User {
         this.folders = new ArrayList<>();
     }
 
+    public User() {
+
+    }
+
     public String getName() {
         return name;
     }
@@ -50,4 +54,14 @@ public class User {
     public void addFolder(Folder folder) {
         this.folders.add(folder);
     }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+
 }

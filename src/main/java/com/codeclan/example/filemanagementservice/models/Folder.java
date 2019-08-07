@@ -24,7 +24,7 @@ public class Folder {
     @OneToMany(mappedBy= "folder", fetch = FetchType.LAZY)
     private List<File> files;
 
-    @JsonIgnoreProperties("folders")
+    @JsonIgnore
     @ManyToOne
     @JoinColumn(name = "user_id", nullable = false)
     private User user;
@@ -33,6 +33,10 @@ public class Folder {
         this.title = title;
         this.user = user;
         this.files = new ArrayList<>();
+
+    }
+
+    public Folder() {
 
     }
 
@@ -59,4 +63,22 @@ public class Folder {
     public void addFile(File file) {
         this.files.add(file);
     }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
+    }
+
+
 }
